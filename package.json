@@ -1,0 +1,29 @@
+{
+  "name": "fgh",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Browser-based client for fossil, git and hg SCMs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ukoloff/fgh.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ukoloff/fgh/issues"
+  },
+  "homepage": "https://github.com/ukoloff/fgh#readme",
+  "dependencies": {
+    "coffee-script": "^1.12.4"
+  },
+  "devDependencies": {
+    "coffee-loader": "^0.7.3",
+    "nodemon": "^1.11.0",
+    "webpack": "^2.2.1"
+  }
+}
