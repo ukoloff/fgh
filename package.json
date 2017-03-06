@@ -12,12 +12,15 @@
     "url": "git+https://github.com/ukoloff/fgh.git"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Stas Ukolov",
+    "email": "ukoloff@gmail.com"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ukoloff/fgh/issues"
   },
-  "homepage": "https://github.com/ukoloff/fgh#readme",
+  "homepage": "https://github.com/ukoloff/fgh",
   "dependencies": {
     "coffee-script": "^1.12.4"
   },
