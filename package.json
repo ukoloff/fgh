@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/ukoloff/fgh",
   "dependencies": {
-    "coffee-script": "^1.12.4"
+    "coffee-script": "^1.12.4",
+    "express": "^4.15.2"
   },
   "devDependencies": {
     "coffee-loader": "^0.7.3",
