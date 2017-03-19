@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  padding: 1ex;
+  padding: 0;
+  overflow: hidden;
 }
 
 .pane {
