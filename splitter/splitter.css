@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 1ex;
+}
+
+.pane {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+}
+
+.int {
+  padding: 1ex;
+}
+
+#splitter {
+  height: 0.5ex;
+  top: 42%;
+  background: red;
+  cursor: move;
+  overflow: hidden;
+}
+
+#top {
+  top: 0;
+  height: 42%;
+  background: silver;
+}
+
+#bottom {
+  bottom: 0;
+  height: 58%;
+  white-space: nowrap;
+  background: yellow;
+}
