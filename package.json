@@ -22,11 +22,14 @@
   "bugs": {
     "url": "https://github.com/ukoloff/fgh/issues"
   },
-  "main": "index.js",
+  "main": "server",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon"
   },
   "dependencies": {
+    "express": "^4.16.4",
+    "livescript": "^1.6.0",
+    "opener": "^1.5.1",
     "ws": "^7.0.0"
   },
   "devDependencies": {
