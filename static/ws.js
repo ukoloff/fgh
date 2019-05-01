@@ -8,5 +8,9 @@ function ws() {
   ws.onopen = _ => {
     console.log('OPEN')
     ws.send('Hello, world!')
+    setTimeout(close, 12345)
+  }
+  function close() {
+    ws.close()
   }
 }

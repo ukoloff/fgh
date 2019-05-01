@@ -24,7 +24,8 @@
   },
   "main": "server",
   "scripts": {
-    "start": "nodemon"
+    "start": "node .",
+    "mon": "nodemon"
   },
   "dependencies": {
     "express": "^4.16.4",
