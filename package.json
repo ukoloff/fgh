@@ -1,32 +1,35 @@
 {
-  "name": "fgh",
+  "name": "@ukoloff/fgh",
   "private": true,
   "version": "0.0.1",
   "description": "Browser-based client for fossil, git and hg SCMs",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ukoloff/fgh.git"
-  },
-  "keywords": [],
+  "keywords": [
+    "git",
+    "mercurial",
+    "fossil",
+    "scm"
+  ],
+  "license": "ISC",
   "author": {
     "name": "Stas Ukolov",
     "email": "ukoloff@gmail.com"
   },
-  "license": "ISC",
+  "homepage": "https://github.com/ukoloff/fgh",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ukoloff/fgh.git"
+  },
   "bugs": {
     "url": "https://github.com/ukoloff/fgh/issues"
   },
-  "homepage": "https://github.com/ukoloff/fgh",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
-    "coffee-script": "^1.12.4"
+    "ws": "^7.0.0"
   },
   "devDependencies": {
-    "coffee-loader": "^0.7.3",
-    "nodemon": "^1.11.0",
-    "webpack": "^2.2.1"
+    "nodemon": "^1.18.11"
   }
 }
