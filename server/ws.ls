@@ -10,7 +10,7 @@ module.exports = create
 
   !function connection(wskt)
     if cleaner
-      clearTimeout cleaner
+      clear-timeout cleaner
       cleaner := 0
 
     is-alive = true
@@ -22,11 +22,12 @@ module.exports = create
       is-alive := true
     .on \close close
 
-    setInterval sentinel, 54321
+    pinger = set-interval sentinel, 54321
 
     !function close
+      clear-interval pinger
       unless wss.clients.length
-        cleaner := setTimeout bye-bye, 12345
+        cleaner := set-timeout bye-bye, 12345
 
     !function sentinel
       if !is-alive
