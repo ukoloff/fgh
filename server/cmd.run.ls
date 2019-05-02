@@ -14,8 +14,8 @@ function run(wskt, args)
   total-line-count = total-byte-count = 0
 
   child_process.spawn exe, args
-  .stdout
   .on \error reject
+  .stdout
   .on \end flush
   .pipe split liner
 
