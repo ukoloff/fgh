@@ -3,7 +3,10 @@ setTimeout(ws)
 var gitLog = {
   cmd: 'run',
   args: 'git log --all --format=' +
-    "%H %P %s %an %ae %aI %cn %ce %cI".split(' ').concat('').join('%n')
+    "H P s an ae aI cn ce cI"
+      .split(' ')
+      .map(x => x + ":%" + x + "%n")
+      .join('')
 }
 
 function ws() {
