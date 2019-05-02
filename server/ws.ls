@@ -37,8 +37,31 @@ module.exports = create
 
     !function message(msg)
       unless delegated
-        console.log \GOT msg
-        wskt.send '>>>' + msg
+        Promise.resolve msg
+        .then JSON.parse
+        .then ->
+          msg := it
+          it ?.= cmd
+          if /^\w+$/.test it
+            it
+          else
+            \#
+        .then ->
+          try
+            require "./cmd.#{it}"
+          catch
+            require "./cmd.oops"
+        .then ->
+          delegated := true
+          it wskt, msg
+        .then do
+          !->
+          !->
+            wskt.send JSON.stringify do
+              error: it.message
+              stack: it.stack
+        .then !->
+          delegated := false
 
 !function bye-bye
   process.exit!

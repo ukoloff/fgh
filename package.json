@@ -31,6 +31,7 @@
     "express": "^4.16.4",
     "livescript": "^1.6.0",
     "opener": "^1.5.1",
+    "split": "^1.0.1",
     "ws": "^7.0.0"
   },
   "devDependencies": {
