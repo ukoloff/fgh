@@ -29,7 +29,7 @@ function run(wskt, args)
     byte-count += line.length
     if line-count >= 1000 or
       byte-count >= 100000 or
-      +new Date >= lastIO + 100000
+      +new Date >= lastIO + 100
       flush!
 
   function reset
