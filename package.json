@@ -1,6 +1,5 @@
 {
   "name": "@ukoloff/fgh",
-  "private": true,
   "version": "0.0.1",
   "description": "Browser-based client for fossil, git and hg SCMs",
   "keywords": [
@@ -27,6 +26,10 @@
     "start": "node .",
     "mon": "nodemon"
   },
+  "files": [
+    "server",
+    "static"
+  ],
   "dependencies": {
     "commander": "^2.20.0",
     "express": "^4.16.4",
