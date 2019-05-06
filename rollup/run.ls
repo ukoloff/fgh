@@ -3,6 +3,7 @@ require! <[ child_process ]>
 module.exports = runner
 
 function runner
+  name: \run
   write-bundle: run
 
 count = 0

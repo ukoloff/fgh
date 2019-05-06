@@ -8,7 +8,7 @@ module.exports = live-script
   filter = rollup-pluginutils.create-filter options.include, options.exclude
   extensions = new Set options.extensions || <[ .ls ]>
 
-  return {transform}
+  return {transform, name: \livescript}
 
   function transform(code, id)
     if filter id and extensions.has path.extname id
