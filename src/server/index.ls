@@ -6,7 +6,7 @@ if args.args.length
 app = express!
 ws server = http.createServer app
 
-app.use express.static path.join __dirname, \../static
+app.use express.static path.join __dirname, \../client
 
 server.listen args.port || 0 !->
   port = @address!port

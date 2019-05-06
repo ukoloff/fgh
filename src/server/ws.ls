@@ -49,9 +49,9 @@ module.exports = create
             \#
         .then ->
           try
-            require "./cmd.#{it}"
+            require "./cmd/#{it}"
           catch
-            require "./cmd.oops"
+            require "./cmd/oops"
         .then ->
           delegated := true
           it wskt, msg

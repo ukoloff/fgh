@@ -24,13 +24,12 @@
   "main": "server",
   "bin": "./bin/fgh",
   "scripts": {
-    "start": "node .",
-    "mon": "nodemon"
+    "start": "rollup -c"
   },
   "files": [
     "bin",
     "server",
-    "static"
+    "client"
   ],
   "dependencies": {
     "commander": "^2.20.0",
