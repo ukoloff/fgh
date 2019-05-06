@@ -24,7 +24,7 @@
   "main": "server",
   "bin": "./bin/fgh",
   "scripts": {
-    "start": "rollup -c"
+    "start": "rollup -cm"
   },
   "files": [
     "bin",
