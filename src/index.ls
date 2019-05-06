@@ -2,7 +2,7 @@ log-args = require \./git/log
 
 setTimeout ws
 
-git-log-cmd =
+git-log-cmd = JSON.stringify do
   cmd: \run
   args: "git log --all --format=#{logArgs.map(-> "%#{it.key}%n").join ''}"
 
@@ -15,7 +15,7 @@ function ws
   wskt.onerror = ->
     console.log \OOPS
   wskt.onopen = ->
-    wskt.send JSON.stringify git-log-cmd
+    wskt.send git-log-cmd
 
 function parse-msg(msg)
   start = git-log.length
@@ -31,8 +31,11 @@ function parse-msg(msg)
         gitLog.push commit
       pending.length = 0
     else if pending.length <= logArgs.length
-      pending.push if pending.length < log-args.length then log-args[pending.length].format line
+      pending.push if pending.length < log-args.length
+        log-args[pending.length].format line
 
-  git-log.slice start .map(-> "<div>#{it.subj}</line>").join ''
+  git-log.slice start
+    .map -> "<div>#{it.subj}</div>"
+    .join ''
     |> document.body.insertAdjacentHTML \beforeEnd _
 
