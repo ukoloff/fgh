@@ -1,7 +1,6 @@
 {
   "name": "@ukoloff/fgh",
-  "private": true,
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Browser-based client for fossil, git and hg SCMs",
   "keywords": [
     "git",
@@ -22,11 +21,23 @@
   "bugs": {
     "url": "https://github.com/ukoloff/fgh/issues"
   },
-  "main": "index.js",
+  "main": "server",
+  "bin": "./bin/fgh",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node .",
+    "mon": "nodemon"
   },
+  "files": [
+    "bin",
+    "server",
+    "static"
+  ],
   "dependencies": {
+    "commander": "^2.20.0",
+    "express": "^4.16.4",
+    "livescript": "^1.6.0",
+    "opener": "^1.5.1",
+    "split": "^1.0.1",
     "ws": "^7.0.0"
   },
   "devDependencies": {
