@@ -42,6 +42,7 @@
     "livescript": "^1.6.0",
     "rollup": "^1.11.3",
     "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-cpy": "^1.1.0",
     "rollup-plugin-node-resolve": "^4.2.3"
   }
 }

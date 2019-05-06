@@ -1,4 +1,4 @@
-require! <[ rollup-plugin-commonjs rollup-plugin-node-resolve ./lsc ]>
+require! <[ rollup-plugin-commonjs rollup-plugin-node-resolve rollup-plugin-cpy ./lsc ]>
 
 exports <<<
   input: './src/'
@@ -11,5 +11,8 @@ exports <<<
   plugins:
     rollup-plugin-commonjs!
     rollup-plugin-node-resolve!
+    rollup-plugin-cpy do
+      files: \src/static/*
+      dest: \client
     ...
 
