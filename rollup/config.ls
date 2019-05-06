@@ -1,4 +1,4 @@
-require! <[ rollup-plugin-commonjs rollup-plugin-node-resolve rollup-plugin-cpy ./lsc ./livescript ./run ]>
+require! <[ rollup-plugin-commonjs rollup-plugin-node-resolve rollup-plugin-cpy ./livescript ./run ]>
 
 exts =
   extensions: <[ .js .ls ]>
