@@ -6,11 +6,25 @@ if args.args.length
 app = express!
 ws server = http.createServer app
 
-app.use express.static path.join __dirname, \../client
+__dirname
+  |> path.join _, \../client
+  |> express.static
+  |> app.use
+
+require.resolve \bootswatch/package
+  |> path.join _, \../dist
+  |> express.static
+  |> app.use
+
+require.resolve \font-awesome/package
+  |> path.join _, \..
+  |> express.static
+  |> app.use
 
 server.listen args.port || 0 !->
   port = @address!port
   url = "http://localhost:#{port}"
-  console.log "Connect to #{url}"
+  if args.prompt
+    console.log "Connect to #{url}"
   if args.browser
     opener url
