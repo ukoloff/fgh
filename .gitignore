@@ -38,3 +38,6 @@ jspm_packages
 
 /tmp
 package-lock.json
+
+/client
+/server
