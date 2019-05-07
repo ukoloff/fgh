@@ -1,4 +1,4 @@
-require! <[ octicons ]>
+require! <[ mithril ./view/main ]>
 
 log-args = require \./git/log
 
@@ -19,8 +19,12 @@ function ws
   wskt.onopen = ->
     wskt.send git-log-cmd
 
-function parse-msg(msg)
-  start = git-log.length
+var mounted
+
+!function parse-msg(msg)
+  unless mounted
+    mounted := true
+    mithril.mount document.body, main git-log
 
   msg = JSON.parse msg.data
   for line in msg.out
@@ -36,13 +40,4 @@ function parse-msg(msg)
       pending.push if pending.length < log-args.length
         log-args[pending.length].format line
 
-  git-log.slice start
-    .map log-html
-    .join ''
-    |> document.body.insertAdjacentHTML \beforeEnd _
-
-function log-html
-  "<div>#{
-    octicons[if it.up.length > 1 then \git-merge else \git-commit]toSVG!} #{
-    it.subj}</div>"
-
+  mithril.redraw!
