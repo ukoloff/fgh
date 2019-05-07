@@ -11,8 +11,11 @@ module.exports = live-script
 
   function transform(code, id)
     if filter id and extensions.has path.extname id
-      js = livescript.compile code, do
-        bare: true
-        map: true
-      code: js.code
-      map:  JSON.stringify js.map
+      try
+        js = livescript.compile code, do
+          bare: true
+          map: true
+        code: js.code
+        map:  JSON.stringify js.map
+      catch err
+        @error err
