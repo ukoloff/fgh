@@ -24,7 +24,7 @@
   "main": "server",
   "bin": "./bin/fgh",
   "scripts": {
-    "start": "rollup -cm"
+    "start": "rollup -c"
   },
   "files": [
     "bin",
@@ -47,6 +47,7 @@
     "rollup-plugin-cpy": "^1.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-terser": "^4.0.4",
     "rollup-pluginutils": "^2.6.0"
   }
 }
