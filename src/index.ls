@@ -1,4 +1,4 @@
-require! <[ mithril ./view/main ]>
+require! <[ mithril ./view/main ./view/head ]>
 
 log-args = require \./git/log
 
@@ -12,6 +12,8 @@ git-log = []
 pending = []
 
 function ws
+  mithril.mount document.head, head
+
   wskt = new WebSocket location.href.replace /^http/, 'ws'
   wskt.onmessage = parse-msg
   wskt.onerror = ->

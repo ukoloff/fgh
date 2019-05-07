@@ -1,5 +1,5 @@
 # require! <[ ./octicon ]>
-m = require \mithril
+require! <[ ./m ]>
 
 module.exports = main-view
 

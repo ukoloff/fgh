@@ -1,5 +1,4 @@
-require! <[ octicons ]>
-m = require \mithril
+require! <[ octicons ./m ]>
 
 module.exports =
   onbeforeupdate: ->
