@@ -4,6 +4,7 @@ require! <[
   rollup-plugin-cpy
   rollup-plugin-json
   rollup-plugin-terser
+  rollup-plugin-sizes
   ./livescript
   ./run
 ]>
@@ -25,6 +26,7 @@ exports <<<
     run!
     rollup-plugin-json!
     rollup-plugin-terser.terser!
+    rollup-plugin-sizes!
     rollup-plugin-commonjs do
       exts
     rollup-plugin-node-resolve do

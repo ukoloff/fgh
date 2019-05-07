@@ -1,4 +1,4 @@
-require! <[ ./octicon ]>
+# require! <[ ./octicon ]>
 m = require \mithril
 
 module.exports = main-view
@@ -8,6 +8,6 @@ function main-view(list)
     m \.container-fluid list.map ->
       m \.,
         key: it.id
-        m octicon, do
-          id: if it.up.length > 1 then \git-merge else \git-commit
+        # m octicon, do
+        #   id: if it.up.length > 1 then \git-merge else \git-commit
         it.subj

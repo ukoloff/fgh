@@ -49,6 +49,7 @@
     "rollup-plugin-cpy": "^1.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-sizes": "^0.5.1",
     "rollup-plugin-terser": "^4.0.4",
     "rollup-pluginutils": "^2.6.0"
   }
