@@ -2,7 +2,6 @@ require! <[ path livescript rollup-pluginutils ]>
 
 module.exports = live-script
 
-
 !function live-script(options = {})
 
   filter = rollup-pluginutils.create-filter options.include, options.exclude
@@ -12,8 +11,11 @@ module.exports = live-script
 
   function transform(code, id)
     if filter id and extensions.has path.extname id
-      Promise.resolve!then ->
-        livescript.compile code, bare: true
-      # .then ->
-      #   map: ''
-      #   code:  it
+      try
+        js = livescript.compile code, do
+          bare: true
+          map: true
+        code: js.code
+        map:  JSON.stringify js.map
+      catch err
+        @error err

@@ -16,11 +16,6 @@ require.resolve \bootswatch/package
   |> express.static
   |> app.use
 
-require.resolve \font-awesome/package
-  |> path.join _, \..
-  |> express.static
-  |> app.use
-
 server.listen args.port || 0 !->
   port = @address!port
   url = "http://localhost:#{port}"
