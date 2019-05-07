@@ -5,9 +5,9 @@ module.exports = parseFields do
   aname:  an: id
   amail:  ae: id
   adate:  aI: date
-  cname:  cn: id
-  cmail:  ce: id
-  cdate:  cI: date
+  # cname:  cn: id
+  # cmail:  ce: id
+  # cdate:  cI: date
 
 function id
   it
