@@ -40,6 +40,7 @@
     "ws": "^7.0.0"
   },
   "devDependencies": {
+    "crc32": "^0.2.2",
     "livescript": "^1.6.0",
     "mithril": "^2.0.0-rc.4",
     "octicons": "^8.5.0",
