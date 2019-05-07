@@ -1,3 +1,5 @@
+require! <[ octicons ]>
+
 log-args = require \./git/log
 
 setTimeout ws
@@ -35,7 +37,12 @@ function parse-msg(msg)
         log-args[pending.length].format line
 
   git-log.slice start
-    .map -> "<div>#{it.subj}</div>"
+    .map log-html
     .join ''
     |> document.body.insertAdjacentHTML \beforeEnd _
+
+function log-html
+  "<div>#{
+    octicons[if it.up.length > 1 then \git-merge else \git-commit]toSVG!} #{
+    it.subj}</div>"
 
