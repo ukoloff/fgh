@@ -1,10 +1,10 @@
-require! <[ mithril ./view/main ./view/head ./util/channel ]>
+require! <[ mithril ./view/main ./view/head ./util/channel ./git/root ]>
 log-args = require \./git/log
 
-setTimeout boot-up
-
-function boot-up
+setTimeout !->
   mithril.mount document.head, head
+
+  root!
 
   channel do
     cmd: \run
