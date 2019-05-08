@@ -9,8 +9,7 @@ require! <[
   ./run
 ]>
 
-exts =
-  extensions: <[ .js .ls ]>
+extensions = <[ .js .ls ]>
 
 exports <<<
   input: './src/'
@@ -27,12 +26,9 @@ exports <<<
     rollup-plugin-json!
     rollup-plugin-terser.terser!
     rollup-plugin-sizes!
-    rollup-plugin-commonjs do
-      exts
-    rollup-plugin-node-resolve do
-      exts
+    rollup-plugin-commonjs {extensions}
+    rollup-plugin-node-resolve {extensions}
     rollup-plugin-cpy do
       files: \src/static/*
       dest: \client
-    ...
 
