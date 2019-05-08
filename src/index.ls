@@ -1,42 +1,39 @@
-require! <[ mithril ./view/main ]>
-
+require! <[ mithril ./view/main ./view/head ./util/channel ./git/root ]>
 log-args = require \./git/log
 
-setTimeout ws
+setTimeout !->
+  mithril.mount document.head, head
 
-git-log-cmd = JSON.stringify do
-  cmd: \run
-  args: "git log --all --format=#{logArgs.map(-> "%#{it.key}%n").join ''}"
+  root!
 
+  channel do
+    cmd: \run
+    args: "git log --all --format=#{logArgs.map(-> "%#{it.key}%n").join ''}"
+    ondata: chunk
+    onerror: error
+
+!function error(err)
+  console.log \OOPS err
+
+var mounted
 git-log = []
 pending = []
 
-function ws
-  wskt = new WebSocket location.href.replace /^http/, 'ws'
-  wskt.onmessage = parse-msg
-  wskt.onerror = ->
-    console.log \OOPS
-  wskt.onopen = ->
-    wskt.send git-log-cmd
-
-var mounted
-
-!function parse-msg(msg)
+!function chunk(msg)
   unless mounted
     mounted := true
     mithril.mount document.body, main git-log
 
-  msg = JSON.parse msg.data
   for line in msg.out
     line .= trim!
     unless line
-      if pending.length == logArgs.length
+      if pending.length == log-args.length
         commit = {}
         for z, j in log-args
           commit[z.name] = pending[j]
-        gitLog.push commit
+        git-log.push commit
       pending.length = 0
-    else if pending.length <= logArgs.length
+    else if pending.length <= log-args.length
       pending.push if pending.length < log-args.length
         log-args[pending.length].format line
 

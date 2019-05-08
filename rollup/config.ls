@@ -4,12 +4,12 @@ require! <[
   rollup-plugin-cpy
   rollup-plugin-json
   rollup-plugin-terser
+  rollup-plugin-sizes
   ./livescript
   ./run
 ]>
 
-exts =
-  extensions: <[ .js .ls ]>
+extensions = <[ .js .ls ]>
 
 exports <<<
   input: './src/'
@@ -25,12 +25,10 @@ exports <<<
     run!
     rollup-plugin-json!
     rollup-plugin-terser.terser!
-    rollup-plugin-commonjs do
-      exts
-    rollup-plugin-node-resolve do
-      exts
+    rollup-plugin-sizes!
+    rollup-plugin-commonjs {extensions}
+    rollup-plugin-node-resolve {extensions}
     rollup-plugin-cpy do
       files: \src/static/*
       dest: \client
-    ...
 
