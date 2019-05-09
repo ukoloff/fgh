@@ -9,9 +9,6 @@ running = 0
 !function channel(options)
   var wsckt
 
-  reuse!
-  return
-
   if free-sockets.length
     reuse free-sockets.pop!
   else if running

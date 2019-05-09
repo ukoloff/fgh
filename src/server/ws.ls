@@ -26,7 +26,7 @@ module.exports = create
 
     !function close
       clear-interval pinger
-      unless wss.clients.length
+      unless wss.clients.size
         cleaner := set-timeout bye-bye, 12345
 
     !function sentinel
