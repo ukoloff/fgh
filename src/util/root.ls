@@ -12,6 +12,7 @@ function root
     .filter id
     .reduce longest
   .then inform
+  .catch noop
 
 function build(detector)
   detector!then ->
@@ -26,13 +27,13 @@ function id
   it
 
 function longest(a, b)
-  if a.root.length > b.root.length
+  if a.root.length >= b.root.length
     a
   else
     b
 
 function inform(rec)
-  if rec and /^(?:(.*)[\\\/]+)?(.+)$/.exec rec.root
+  if /^(?:(.*)[\\\/]+)?(.+)$/.exec rec.root
     document.title = "#{
       document.title.replace rec.scm[0], rec.scm[0].toUpperCase!}: #{
       rec.name = that[2]} @ #{
