@@ -9,13 +9,16 @@ function run(wskt, args)
   exe = args.shift!
   resolve, reject <-! new Promise _
 
+  var mute
   var lines, line-count, byte-count, lastIO
   reset!
   total-line-count = total-byte-count = 0
   start-time = +new Date
 
   child_process.spawn exe, args
-  .on \error reject
+  .on \error ->
+    reject it
+    mute := true
   .on \close !->
     resolve!
     flush do
@@ -39,7 +42,7 @@ function run(wskt, args)
     lastIO := +new Date
 
   function flush(data)
-    if lines.length or data
+    if !mute and (lines.length or data)
       data ||= {}
       data <<<
         out: lines
