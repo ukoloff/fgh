@@ -1,6 +1,6 @@
 {
   "name": "@ukoloff/fgh",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Browser-based client for fossil, git and hg SCMs",
   "keywords": [
     "git",
