@@ -55,12 +55,10 @@ module.exports = create
         .then ->
           delegated := true
           it wskt, msg
-        .then do
-          !->
-          !->
-            wskt.send JSON.stringify do
-              error: it.message
-              stack: it.stack
+        .catch !->
+          wskt.send JSON.stringify do
+            error: it.message
+            stack: it.stack
         .then !->
           delegated := false
 
