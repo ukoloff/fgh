@@ -4,7 +4,7 @@ log-args = require \./git/log
 setTimeout !->
   mithril.mount document.head, head
 
-  root!
+  <-! root!.then
 
   channel do
     cmd: \run

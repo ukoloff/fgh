@@ -1,11 +1,40 @@
 module.exports = root
+
 detectors =
   require \../fossil/root
   require \../hg/root
   require \../git/root
 
 function root
-  Promise.all detectors.map ->
-    it!catch ->
+  Promise.all detectors.map build
   .then ->
-    console.log \ROOTS it
+    it
+    .filter id
+    .reduce longest
+  .then inform
+
+function build(detector)
+  detector!then ->
+    scm: detector.scm
+    root: it
+  .catch noop
+
+function noop
+  void
+
+function id
+  it
+
+function longest(a, b)
+  if a.root.length > b.root.length
+    a
+  else
+    b
+
+function inform(rec)
+  if rec and /^(?:(.*)[\\\/]+)?(.+)$/.exec rec.root
+    document.title = "#{
+      document.title.replace rec.scm[0], rec.scm[0].toUpperCase!}: #{
+      rec.name = that[2]} @ #{
+      rec.base = that[1]}"
+  rec
