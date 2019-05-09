@@ -17,6 +17,7 @@ function run(wskt, args)
   child_process.spawn exe, args
   .on \error reject
   .on \close !->
+    resolve!
     flush do
       done: true
       code: it
