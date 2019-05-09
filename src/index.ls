@@ -1,4 +1,4 @@
-require! <[ mithril ./view/main ./view/head ./util/channel ./git/root ]>
+require! <[ mithril ./view/main ./view/head ./util/channel ./util/root ]>
 log-args = require \./git/log
 
 setTimeout !->

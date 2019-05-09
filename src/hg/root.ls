@@ -1,9 +1,9 @@
 require! <[ ../util/run ]>
 
 module.exports = root
-root.scm = 'git'
+root.scm = 'hg'
 
 function root
-  run args: "git rev-parse --show-toplevel"
+  run args: "hg root"
   .then ->
     it[0]
