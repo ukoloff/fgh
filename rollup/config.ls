@@ -13,13 +13,12 @@ require! <[
 extensions = <[ .js .ls ]>
 
 exports <<<
-  input: './src/'
+  input: \./src
 
   output:
     file: \client/fgh.js
-    name: \fgh
     format: \iife
-    sourcemap:  \inline
+    sourcemap: \inline
 
   plugins:
     livescript!
@@ -32,4 +31,3 @@ exports <<<
     upgrade rollup-plugin-cpy do
       files: \src/static/*
       dest: \client
-
