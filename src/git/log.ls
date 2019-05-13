@@ -2,12 +2,8 @@ module.exports = parseFields do
   id:     H: id
   up:     P: split
   subj:   s: id
-  aname:  an: id
-  amail:  ae: id
-  adate:  aI: date
-  # cname:  cn: id
-  # cmail:  ce: id
-  # cdate:  cI: date
+  author: 'an <%ae>': id
+  date:   aI: date
 
 function id
   it

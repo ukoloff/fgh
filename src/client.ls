@@ -8,7 +8,7 @@ setTimeout !->
 
   channel do
     cmd: \run
-    args: "git log --all --format=#{logArgs.map(-> "%#{it.key}%n").join ''}"
+    args: <[ git log --all ]>.concat "--format=#{logArgs.map(-> "%#{it.key}%n").join ''}"
     ondata: chunk
     onerror: error
 
