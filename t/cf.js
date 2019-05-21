@@ -1,0 +1,15 @@
+// var {parser} = require('stream-json')
+var Pick = require('stream-json/filters/Pick')
+var StreamArray = require('stream-json/streamers/StreamArray')
+// var StreamValues = require('stream-json/streamers/StreamValues')
+var es = require('event-stream')
+
+var fo = require('./fo')
+
+fo()
+  // .pipe(parser())
+  .pipe(Pick.withParser({ filter: 'payload' }))
+  .pipe(new Pick({ filter: 'timeline' }))
+  .pipe(new StreamArray())
+  // .pipe(es.mapSync(JSON.stringify))
+  // .pipe(es.mapSync(console.log))
