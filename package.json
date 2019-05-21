@@ -1,0 +1,56 @@
+{
+  "name": "@ukoloff/fgh",
+  "version": "0.0.9",
+  "description": "Browser-based client for fossil, git and hg SCMs",
+  "keywords": [
+    "git",
+    "mercurial",
+    "fossil",
+    "scm"
+  ],
+  "license": "ISC",
+  "author": {
+    "name": "Stas Ukolov",
+    "email": "ukoloff@gmail.com"
+  },
+  "homepage": "https://github.com/ukoloff/fgh",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ukoloff/fgh.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ukoloff/fgh/issues"
+  },
+  "main": "server",
+  "bin": "./bin/fgh",
+  "scripts": {
+    "start": "rollup -c"
+  },
+  "files": [
+    "bin",
+    "server",
+    "client"
+  ],
+  "dependencies": {
+    "bootswatch": "^4.3.1",
+    "commander": "^2.20.0",
+    "express": "^4.16.4",
+    "opener": "^1.5.1",
+    "split": "^1.0.1",
+    "ws": "^7.0.0"
+  },
+  "devDependencies": {
+    "crc32": "^0.2.2",
+    "livescript": "^1.6.0",
+    "mithril": "^2.0.0-rc.4",
+    "octicons": "^8.5.0",
+    "rollup": "^1.11.3",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-cpy": "^1.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-sizes": "^0.5.1",
+    "rollup-plugin-terser": "^4.0.4",
+    "rollup-pluginutils": "^2.6.0"
+  }
+}
