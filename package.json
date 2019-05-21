@@ -36,5 +36,7 @@
     "oboe": "^2.1.4",
     "stream-json": "^1.2.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "event-stream": "^4.0.1"
+  }
 }
