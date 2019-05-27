@@ -1,9 +1,18 @@
 version: 1.0.{build}-{branch}
 
+platform:
+- x86
+- x64
+
 install:
   - appveyor DownloadFile https://fossil-scm.org/home/zip/trunk/Fossil-trunk.zip
   - 7z x *.zip
   - cd Fossil-trunk\win
   - buildmsvc.bat FOSSIL_ENABLE_JSON=1
+  - copy /b ..\msvcbld\fossil.exe ..\..
 
 build: off
+
+artifacts:
+  - path: fossil.exe
+    name: Fossil for Windows with JSON support
