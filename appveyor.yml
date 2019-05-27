@@ -9,8 +9,11 @@ platform:
 install:
   - appveyor DownloadFile https://fossil-scm.org/home/zip/trunk/Fossil-trunk.zip
   - 7z x *.zip
+  - appveyor DownloadFile https://www.openssl.org/source/openssl-1.1.1b.tar.gz
+  - 7z e *.tar.gz
+  - 7z x *.tar -oFossil-trunk\compat
   - cd Fossil-trunk\win
-  - buildmsvc.bat FOSSIL_ENABLE_JSON=1 FOSSIL_ENABLE_TCL=1
+  - buildmsvc.bat FOSSIL_ENABLE_JSON=1 FOSSIL_ENABLE_TCL=1 FOSSIL_ENABLE_SSL=1 FOSSIL_BUILD_SSL=1
   - copy /b ..\msvcbld\fossil.exe ..\..
 
 build: off
