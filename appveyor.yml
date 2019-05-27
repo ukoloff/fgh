@@ -6,12 +6,18 @@ platform:
 # - x86
 - x64
 
+environment:
+  UPX_VER: 3.95
+
 install:
   - appveyor DownloadFile https://fossil-scm.org/home/zip/trunk/Fossil-trunk.zip
   - 7z x *.zip
+  - appveyor DownloadFile https://github.com/upx/upx/releases/download/v%UPX_VER%/upx-%UPX_VER%-win64.zip
+  - 7z e upx-*.zip *.exe
   - cd Fossil-trunk\win
   - buildmsvc.bat FOSSIL_ENABLE_JSON=1 FOSSIL_ENABLE_TCL=1
   - copy /b ..\msvcbld\fossil.exe ..\..
+  - upx fossil.exe
 
 build: off
 
