@@ -1,5 +1,7 @@
 version: 1.0.{build}-{branch}
 
+clone_depth: 1
+
 platform:
 # - x86
 - x64
