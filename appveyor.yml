@@ -1,7 +1,7 @@
 version: 1.0.{build}-{branch}
 
 platform:
-- x86
+# - x86
 - x64
 
 install:
