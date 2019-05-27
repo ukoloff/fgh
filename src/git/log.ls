@@ -1,6 +1,6 @@
 module.exports = parseFields do
   id:     H: id
-  up:     P: split
+  up:     'P/': split
   subj:   s: id
   author: 'an <%ae>': id
   date:   aI: date
@@ -9,7 +9,9 @@ function id
   it
 
 function split
-  it.split /\s+/
+  it
+  .slice 0 -1
+  .split /\s+/
 
 function date it
   new Date it
