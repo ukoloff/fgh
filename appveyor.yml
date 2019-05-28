@@ -19,10 +19,12 @@ install:
   - appveyor DownloadFile https://github.com/upx/upx/releases/download/v%UPX_VER%/upx-%UPX_VER%-win64.zip
   - 7z e upx-*.zip */*.exe
   - cd Fossil-trunk\win
-  - buildmsvc.bat FOSSIL_ENABLE_JSON=1 FOSSIL_ENABLE_TCL=1 FOSSIL_ENABLE_SSL=1 FOSSIL_BUILD_SSL=1
+  - buildmsvc.bat FOSSIL_ENABLE_JSON=1 FOSSIL_ENABLE_TCL=1 # FOSSIL_ENABLE_SSL=1 FOSSIL_BUILD_SSL=1
   - copy /b ..\msvcbld\fossil.exe ..\..
   - cd ..\..
   - upx fossil.exe
+  - fossil version
+  - ps: Add-AppveyorMessage -Message $(./fossil version)
 
 build: off
 
