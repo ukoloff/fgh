@@ -1,0 +1,5 @@
+image: node:4
+
+push:
+  script:
+  - . script/build
