@@ -1,7 +1,9 @@
 require! <[ ../util/run ]>
 
 module.exports = root
-root.scm = 'fossil'
+root.scm =
+  name: \fossil
+  log: require \./log
 
 function root
   run args: "fossil info"

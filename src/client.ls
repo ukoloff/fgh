@@ -2,5 +2,5 @@ require! <[ ./util/root ./view/head ]>
 
 set-timeout !->
   head!
-  <-! root!.then
-  do require \./git/log
+  winner <-! root!.then
+  winner.scm.log!

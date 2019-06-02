@@ -1,7 +1,9 @@
 require! <[ ../util/run ]>
 
 module.exports = root
-root.scm = 'git'
+root.scm =
+  name: \git
+  log: require \./log
 
 function root
   run args: "git rev-parse --show-toplevel"

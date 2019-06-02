@@ -1,7 +1,9 @@
 require! <[ ../util/run ]>
 
 module.exports = root
-root.scm = 'hg'
+root.scm =
+  name: \hg
+  log: require \./log
 
 function root
   run args: "hg root"

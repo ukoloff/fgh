@@ -35,7 +35,7 @@ function longest(a, b)
 function inform(rec)
   if /^(?:(.*)[\\\/]+)?(.+)$/.exec rec.root
     document.title = "#{
-      document.title.replace rec.scm[0], rec.scm[0].toUpperCase!}: #{
+      document.title.replace rec.scm.name[0], rec.scm.name[0].toUpperCase!}: #{
       rec.name = that[2]} @ #{
       rec.base = that[1]}"
   rec
