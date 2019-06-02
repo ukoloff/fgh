@@ -11,4 +11,10 @@ function hg-log
     onerror: error
 
 !function chunk(msg)
-  main.append []
+  main.append msg.out.map mapper
+
+function mapper(commit)
+  commit <<<
+    date: new Date commit.date[0] * 1000
+    id: delete commit.node
+    comment: delete commit.desc

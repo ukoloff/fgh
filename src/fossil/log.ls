@@ -11,4 +11,9 @@ function fossil-checkins
     onerror: error
 
 !function chunk(msg)
-  main.append []
+  main.append msg.out.map mapper
+
+function mapper(commit)
+  commit <<<
+    id: delete commit.uuid
+    date: new Date 1000 * delete commit.timestamp

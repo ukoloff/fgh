@@ -35,7 +35,7 @@ function run(wskt, options)
     lines.push line
     line-count += 1
     byte-count += line.length
-    if line-count >= 1000 or
+    if line-count >= 777 or
       byte-count >= 100000 or
       +new Date >= lastIO + 100
       flush!
@@ -43,7 +43,7 @@ function run(wskt, options)
   !function jsoner(data)
     lines.push data
     line-count += 1
-    if line-count >= 100 or
+    if line-count >= 108 or
       +new Date >= lastIO + 100
       flush!
 

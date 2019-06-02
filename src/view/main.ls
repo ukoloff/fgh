@@ -20,13 +20,13 @@ log-view =
       m do
         \.commit
         key: commit.id
-        commit.subj
+        commit.comment
         m do
           \small
           m \br
           m \span.text-info format-date commit.date
           ' '
-          m \span.text-success commit.author
+          m \span.text-success commit.user
 
 function format-date(date)
   "#{

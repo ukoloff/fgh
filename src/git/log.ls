@@ -4,9 +4,9 @@ module.exports = git-log
 
 fields = parseFields do
   id:     H: id = -> it
-  up:     'P .': -> it.split /\s+/ .slice 0 -1
-  subj:   s: id
-  author: 'an <%ae>': id
+  parents:     'P .': -> it.split /\s+/ .slice 0 -1
+  comment:   s: id
+  user: 'an <%ae>': id
   date:   aI: -> new Date it
 
 function parse-fields(rec)
