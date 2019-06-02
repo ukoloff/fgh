@@ -7,13 +7,9 @@ function fossil-checkins
     cmd: \run
     args: <[ fossil json timeline checkin -n 0 ]>
     j$on: \payload.timeline.*
-    ondata: chunk
     onerror: error
-
-!function chunk(msg)
-  main.append msg.out.map mapper
-
-function mapper(commit)
-  commit <<<
-    id: delete commit.uuid
-    date: new Date 1000 * delete commit.timestamp
+    ondata: !->
+      main.append it.out.map ->
+        it <<<
+          id: delete it.uuid
+          date: new Date 1000 * delete it.timestamp

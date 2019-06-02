@@ -7,14 +7,10 @@ function hg-log
     cmd: \run
     args: <[ hg log -T json -l 1234567890 ]>
     j$on: \*
-    ondata: chunk
     onerror: error
-
-!function chunk(msg)
-  main.append msg.out.map mapper
-
-function mapper(commit)
-  commit <<<
-    date: new Date commit.date[0] * 1000
-    id: delete commit.node
-    comment: delete commit.desc
+    ondata: !->
+      main.append it.out.map ->
+        it <<<
+          date: new Date it.date[0] * 1000
+          id: delete it.node
+          comment: delete it.desc
