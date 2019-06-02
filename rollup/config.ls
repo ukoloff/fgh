@@ -7,28 +7,27 @@ require! <[
   rollup-plugin-sizes
   ./livescript
   ./run
+  ./upgrade
 ]>
 
 extensions = <[ .js .ls ]>
 
 exports <<<
-  input: './src/'
+  input: \./src
 
   output:
     file: \client/fgh.js
-    name: \fgh
     format: \iife
-    sourcemap:  \inline
+    sourcemap: \inline
 
   plugins:
     livescript!
     run!
     rollup-plugin-json!
     rollup-plugin-terser.terser!
-    rollup-plugin-sizes!
+    upgrade rollup-plugin-sizes!
     rollup-plugin-commonjs {extensions}
     rollup-plugin-node-resolve {extensions}
-    rollup-plugin-cpy do
+    upgrade rollup-plugin-cpy do
       files: \src/static/*
       dest: \client
-

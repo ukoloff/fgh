@@ -1,4 +1,7 @@
 # fgh
+
+[![npm version](https://badge.fury.io/js/%40ukoloff%2Ffgh.svg)](https://badge.fury.io/js/%40ukoloff%2Ffgh)
+
 Browser-based client for [fossil], [git] and [hg] SCMs
 
 ## Credits

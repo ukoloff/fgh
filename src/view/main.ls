@@ -1,13 +1,42 @@
-# require! <[ ./octicon ]>
 require! <[ ./m ]>
 
-module.exports = main-view
+module.exports <<< {
+  append
+}
 
-function main-view(list)
+var history
+
+!function append(commits)
+  unless history
+    history := []
+    m.mount document.body, log-view
+
+  history.push ...commits
+  m.redraw!
+
+log-view =
   view: ->
-    m \.container-fluid list.map ->
-      m \.,
-        key: it.id
-        # m octicon, do
-        #   id: if it.up.length > 1 then \git-merge else \git-commit
-        it.subj
+    m \.container-fluid history.map (commit)->
+      m do
+        \.commit
+        key: commit.id
+        commit.comment
+        m do
+          \small
+          m \br
+          m \span.text-info format-date commit.date
+          ' '
+          m \span.text-success commit.user
+
+function format-date(date)
+  "#{
+    date.to-time-string!split /\s+/ .0} #{
+    date.get-full-year!}-#{
+    f02 date.get-month! + 1}-#{
+    f02 date.get-date!}"
+
+function f02(num)
+  num = "#{num}"
+  while num.length < 2
+    num = "0#{num}"
+  num

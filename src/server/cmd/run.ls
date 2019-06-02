@@ -1,34 +1,49 @@
-require! <[ child_process split ]>
+require! <[ child_process split JSONStream ]>
 
 module.exports = run
 
-function run(wskt, args)
-  args .= args
+function run(wskt, options)
+  {args, j$on} = options
   if \string == typeof args
     args .= split /\s+/
   exe = args.shift!
   resolve, reject <-! new Promise _
 
+  var mute
   var lines, line-count, byte-count, lastIO
   reset!
   total-line-count = total-byte-count = 0
   start-time = +new Date
 
   child_process.spawn exe, args
-  .on \error reject
+  .on \error ->
+    reject it
+    mute := true
   .on \close !->
+    resolve!
     flush do
       done: true
       code: it
   .stdout
-  .pipe split liner
+  .pipe if j$on
+    JSONStream.parse j$on
+    .on \data jsoner
+  else
+    split liner
 
-  function liner(line)
+  !function liner(line)
     lines.push line
     line-count += 1
     byte-count += line.length
-    if line-count >= 1000 or
+    if line-count >= 777 or
       byte-count >= 100000 or
+      +new Date >= lastIO + 100
+      flush!
+
+  !function jsoner(data)
+    lines.push data
+    line-count += 1
+    if line-count >= 108 or
       +new Date >= lastIO + 100
       flush!
 
@@ -38,7 +53,7 @@ function run(wskt, args)
     lastIO := +new Date
 
   function flush(data)
-    if lines.length or data
+    if !mute and (lines.length or data)
       data ||= {}
       data <<<
         out: lines
