@@ -2,7 +2,10 @@ require! <[ ./m ]>
 
 theme = \yeti
 
-module.exports =
+module.exports = ->
+  m.mount document.head, head-view
+
+head-view =
   view: ->
     m.fragment do
       m \title \fgh
