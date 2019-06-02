@@ -1,6 +1,6 @@
 {
   "name": "@ukoloff/fgh",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Browser-based client for fossil, git and hg SCMs",
   "keywords": [
     "git",
@@ -37,6 +37,7 @@
     "bootswatch": "^4.3.1",
     "commander": "^2.20.0",
     "express": "^4.16.4",
+    "font-awesome": "^4.7.0",
     "opener": "^1.5.1",
     "split": "^1.0.1",
     "ws": "^7.0.0"
@@ -45,7 +46,6 @@
     "crc32": "^0.2.2",
     "livescript": "^1.6.0",
     "mithril": "^2.0.0-rc.4",
-    "octicons": "^8.5.0",
     "rollup": "^1.11.3",
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-cpy": "^1.1.0",

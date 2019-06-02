@@ -12,3 +12,6 @@ head-view =
       m \link do
         rel: \stylesheet
         href: "#{theme}/bootstrap.min.css"
+      m \link do
+        rel: \stylesheet
+        href: \css/font-awesome.min.css
