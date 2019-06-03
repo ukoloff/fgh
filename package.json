@@ -24,6 +24,7 @@
   "main": "server",
   "bin": "./bin/fgh",
   "scripts": {
+    "prepublish": "node rollup/unmap",
     "test": "rollup -c",
     "start": "rollup -cw"
   },

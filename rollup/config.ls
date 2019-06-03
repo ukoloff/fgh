@@ -18,7 +18,7 @@ exports <<<
   output:
     file: \client/fgh.js
     format: \iife
-    sourcemap: \inline
+    sourcemap: true
 
   plugins:
     livescript!
