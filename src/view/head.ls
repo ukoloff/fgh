@@ -1,6 +1,6 @@
 require! <[ ./m ]>
 
-theme = \yeti
+theme = \journal
 
 module.exports = ->
   m.mount document.head, head-view

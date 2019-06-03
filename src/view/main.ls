@@ -16,17 +16,25 @@ var history
 
 log-view =
   view: ->
-    m \.container-fluid history.map (commit)->
+    m \.container-fluid m \table.table.table-striped.table-hover m \tbody history.map (commit)->
       m do
-        \.commit
+        \tr
         key: commit.id
-        commit.comment
         m do
-          \small
+          \label.form-check.form-check-label
+          m \input.form-check-input do
+            type: \radio
+            name: \id
+            value: \commit.id
+
+          commit.comment
           m \br
-          m \span.text-info format-date commit.date
-          ' '
-          m \span.text-success commit.user
+          m do
+            \small
+            # m \br
+            m \span.text-info format-date commit.date
+            ' '
+            m \span.text-success commit.user
 
 function format-date(date)
   "#{
