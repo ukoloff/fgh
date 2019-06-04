@@ -1,27 +1,27 @@
-require! <[ path http express opener ./ws ./args ]>
+require! <[ path connect serve-static opener ./ws ./args ]>
 
 if args.args.length
   process.chdir args.args[0]
 
-app = express!
-ws server = http.createServer app
+app = connect!
 
 __dirname
   |> path.join _, \../client
-  |> express.static
+  |> serve-static
   |> app.use
 
 require.resolve \bootswatch/package
   |> path.join _, \../dist
-  |> express.static
+  |> serve-static
   |> app.use
 
 require.resolve \font-awesome/package
   |> path.dirname
-  |> express.static
+  |> serve-static
   |> app.use
 
-server.listen args.port || 0 \localhost !->
+app.listen args.port || 0 \localhost !->
+  ws @
   port = @address!port
   url = "http://localhost:#{port}"
   if args.prompt
