@@ -5,6 +5,8 @@ module.exports <<< {
 }
 
 var history
+var render-start
+visible-length = 0
 
 !function append(commits)
   unless history
@@ -12,7 +14,22 @@ var history
     m.mount document.body, log-view
 
   history.push ...commits
-  m.redraw!
+  console.log \= history.length
+  unless render-start
+    show-more!
+
+!function show-more
+  if visible-length < history.length
+    render-start := +new Date
+    visible-length += Math.min 100 history.length - visible-length
+
+    m.redraw!
+  else
+    render-start := void
+
+!function render-end
+  set-timeout show-more, pause = +new Date - render-start
+  console.log pause, visible-length
 
 log-view =
   view: ->
@@ -35,6 +52,7 @@ log-view =
             m \span.text-info format-date commit.date
             ' '
             m \span.text-success commit.user
+  onupdate: render-end
 
 function format-date(date)
   "#{
