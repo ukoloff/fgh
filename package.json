@@ -48,7 +48,7 @@
     "crc32": "^0.2.2",
     "livescript": "^1.6.0",
     "mithril": "^2.0.0-rc.4",
-    "rollup": "^1.11.3",
+    "rollup": "^1.15.6",
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-cpy": "^1.1.0",
     "rollup-plugin-json": "^4.0.0",
