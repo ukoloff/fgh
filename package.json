@@ -47,8 +47,8 @@
   "devDependencies": {
     "crc32": "^0.2.2",
     "livescript": "^1.6.0",
-    "mithril": "^2.0.0-rc.7",
-    "rollup": "^1.16.7",
+    "mithril": "^2.0.3",
+    "rollup": "^1.17.0",
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-cpy": "^1.1.0",
     "rollup-plugin-json": "^4.0.0",
