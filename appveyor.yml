@@ -12,7 +12,7 @@ environment:
 install:
   - appveyor DownloadFile https://fossil-scm.org/home/zip/trunk/Fossil-trunk.zip
   - 7z x *.zip
-  - appveyor DownloadFile https://www.openssl.org/source/openssl-1.1.1c.tar.gz
+  - appveyor DownloadFile https://www.openssl.org/source/openssl-1.1.1d.tar.gz
   - 7z e *.tar.gz
   - 7z x *.tar -oFossil-trunk\compat
   - ppm install dmake
